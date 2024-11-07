@@ -10,6 +10,11 @@ console.log('EMAIL_PASS:', process.env.EMAIL_PASS);
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self';");
+    next();
+});
+
 
 const contactEmail = nodemailer.createTransport({
     service: 'gmail',

@@ -41,7 +41,7 @@ app.post("/Contact", (req, res) => {
             <p>Message: ${message}</p>
         `,
     };
-
+    
     contactEmail.sendMail(mail, (error) => {
         if (error) {
             console.log('Error sending email:', error);

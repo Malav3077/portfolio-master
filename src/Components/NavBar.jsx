@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { ArrowDownCircle } from 'react-bootstrap-icons';
-import malavimglogo from "../assets/img/mplogo1.jpg";
+import malavimglogo from "../assets/img/malav_logo_07.png";
 import github from "../assets/img/github.svg";
 import linkedin from "../assets/img/linkedin.svg";
 import twitter from "../assets/img/twitter.svg";
@@ -29,8 +29,8 @@ export const NavBar = () => {
 
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/Malav_new_Resume.pdf';
-    link.download = '/Malav_new_Resume.pdf';
+    link.href = '/Malav_Final_Resume.pdf';
+    link.download = '/Malav_Final_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -56,7 +56,7 @@ export const NavBar = () => {
               <a href="https://github.com/Malav3077" target="_blank"><img src={github} alt="Github" /></a>
               <a target="_blank" href="https://www.instagram.com/malav_._3077._/"><img src={twitter} alt="x" /></a>
             </div>
-            <button className="vvd" href="/public/Malav_new_Resume.pdf" download onClick={handleDownload}>
+            <button className="vvd" href="/public/Malav_Final_Resume.pdf" download onClick={handleDownload}>
               <span>My Resume</span> &nbsp; <ArrowDownCircle size={22} />
             </button>
           </span>

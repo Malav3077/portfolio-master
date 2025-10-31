@@ -7,36 +7,30 @@ import {
   TabContent,
 } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
-import { ProjectCard } from "../../ProjectCard";
+import { ProjectCard } from "./ProjectCard";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import projectImg1 from "../assets/img/projectImg1.png";
 import projectImg2 from "../assets/img/projectImg2.png";
 import projectImg3 from "../assets/img/projectImg3.png";
 import projectImg4 from "../assets/img/projectImg4.png";
-import projectImg5 from "../assets/img/projectImg5.png";
-import projectImg6 from "../assets/img/projectImg6.png";
 
 export const ProfessionalH = () => {
-
- 
-
-
   const projects = [
     {
       title: "Gemini AI Project",
-      description: "Tech stack: HTML, CSS, REACTJS,Bootstrap,ExpressJS",
+      description: "Tech stack: HTML, CSS, REACTJS, Bootstrap, ExpressJS",
       Link: `https://ui-makeaibyking.onrender.com/`,
       imgUrl: projectImg1,
     },
     {
       title: "Job_Portal_App",
-      description: "Tech stack: HTML, CSS and Javascript, React, Express, MongoDB",
+      description: "Tech stack: HTML, CSS, JavaScript, React, Express, MongoDB",
       Link: `https://github.com/Malav3077/JOB_PORTAL_MERN.git`,
       imgUrl: projectImg2,
     },
     {
       title: "Online Tiffin Services",
-      description: "Tech stack: HTML, CSS , javaScript , Laravel9",
+      description: "Tech stack: HTML, CSS, JavaScript, Laravel 9",
       Link: `https://github.com/Malav3077/Online-Tiffin-Service-project.git`,
       imgUrl: projectImg3,
     },
@@ -46,7 +40,6 @@ export const ProfessionalH = () => {
       Link: `https://github.com/Malav3077/Impact-of-Technology-on-Climate-Change.git`,
       imgUrl: projectImg4,
     },
-   
   ];
 
   return (
@@ -54,16 +47,12 @@ export const ProfessionalH = () => {
       <Container>
         <Row>
           <Col>
-            <h2>Professional highlights</h2>
-            <h6 className="summary ">
-             Short Summary of my Professional Journey
-            </h6>
+            <h2>Professional Highlights</h2>
+            <h6 className="summary">Short Summary of my Professional Journey</h6>
             <TabContainer id="projects-tabs" defaultActiveKey="first">
               <Nav
                 variant="pills"
-                defaultActiveKey="first"
-                className="nav-pills mb-5 justify-content-center align-item-center "
-                id="pills-tab"
+                className="nav-pills mb-5 justify-content-center align-items-center"
               >
                 <Nav.Item>
                   <Nav.Link eventKey="first">Projects</Nav.Link>
@@ -72,7 +61,10 @@ export const ProfessionalH = () => {
                   <Nav.Link eventKey="second">Certificate</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="third"> Achievements</Nav.Link>
+                  <Nav.Link eventKey="third">Achievements</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="fourth">Experience</Nav.Link>
                 </Nav.Item>
               </Nav>
               <TabContent>
@@ -83,49 +75,48 @@ export const ProfessionalH = () => {
                     ))}
                   </Row>
                 </TabPane>
+
                 <TabPane eventKey="second">
-                  <h4>
-                    1) React and Laravel Workshop{" "}
-                  </h4>
-
+                  <h4>1) React and Laravel Workshop</h4>
                   <p className="text-start">
-                    Attended a workshop on React and Laravel at the Anand Institute of Management and Information Science, where I gained valuable insights into both frameworks. Upon completion, I received a certificate of achievement
+                    Attended a workshop on React and Laravel at the Anand Institute of Management and Information Science, where I gained valuable insights into both frameworks. Upon completion, I received a certificate of achievement.
                   </p>
-
-<br />
-                  <h4>
-                    2) State Level Hackathon Participation{" "}
-                  </h4>
-
+                  <br />
+                  <h4>2) State Level Hackathon Participation</h4>
                   <p className="text-start">
-                    attended a hackathon in Mehsana, Visnagar, as part of the teams Code Villa and Web Spear, where we developed a project using C language for Code Villa and HTML, CSS, and JavaScript for Web Spear. Our team engaged in intense coding sprints, successfully presenting our solutions to a panel of judges. Our efforts were recognized with a second prize and a certificate of achievement, showcasing our teamwork and innovation in tackling real-world challenges.
+                    Participated in a hackathon at Visnagar with teams Code Villa and Web Spear. We built solutions using C and JavaScript respectively, winning second prize and gaining hands-on problem-solving experience.
                   </p>
-<br />
-                  <h4>
-                    3)Hackathon Participation (CyberSecurity Project){" "}
-                  </h4>
-
+                  <br />
+                  <h4>3) CyberSecurity Hackathon</h4>
                   <p className="text-start">
-                    I participated in a hackathon at Anand Institute of Management and Information Science, where we developed a phishing detection website tool focused on cybersecurity. Utilizing technologies such as HTML, CSS, JavaScript, and Python, our team created a solution that identifies and alerts users to potential phishing threats, showcasing the importance of cybersecurity awareness.
+                    Developed a phishing detection tool using HTML, CSS, JS, and Python during a cybersecurity hackathon. The project raised awareness on safe browsing practices.
                   </p>
                 </TabPane>
+
                 <TabPane eventKey="third">
-                  <h4>
-                    1) Second Prize in Tech Vila (Designing) and Tech Spear (Coding)
-
-                  </h4>
+                  <h4>1) Second Prize in Tech Vila (Design) & Tech Spear (Coding)</h4>
                   <p className="text-start">
-                   I secured the Second Prize in a state-level coding competition, participating in both Tech Vila (Designing) and Tech Spear (Coding). In Tech Vila, I demonstrated my creativity by designing an innovative project, while in Tech Spear, I developed a robust coding solution that effectively addressed the challenge. This achievement showcases my skills in both design and coding, highlighting my versatility and commitment to excellence in technology. The experience also strengthened my collaboration and communication skills, motivating me to continue exploring new avenues in the tech field.
+                    I secured the Second Prize at a state-level competition for both design and coding events. I created UI designs in Tech Vila and coded problem-solving logic in Tech Spear, showcasing my versatility and creativity.
+                  </p>
+                </TabPane>
+
+                <TabPane eventKey="fourth">
+                  <h4>Internship – Odoo Developer (6 Months)</h4>
+                  <p className="text-start">
+                    Completed a 6-month internship as an Odoo Developer, gaining hands-on experience with Python-based server logic, Odoo's ORM, QWeb report customization, and module creation. Worked closely with senior developers and contributed to real-world ERP applications.
                   </p>
 
-              
+                  <h4>Full-Time Role – Odoo Developer at RDFLEX Technologies</h4>
+                  <p className="text-start">
+                    Currently working as a full-time Odoo Developer at RDFLEX Technologies. Responsible for end-to-end module development, backend logic in Python, frontend customization using XML/QWeb, and client-specific automation solutions. My role also includes resolving bugs, integrating third-party tools, and contributing to business workflows using Odoo 14–17.
+                  </p>
                 </TabPane>
-              </TabContent>
+              </TabContent> 
             </TabContainer>
           </Col>
         </Row>
       </Container>
-      <img src={colorSharp2} alt="" className="background-image-right" />
+      <img src={colorSharp2} alt="bg" className="background-image-right" />
     </div>
   );
 };

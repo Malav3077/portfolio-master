@@ -58,6 +58,21 @@ export const Contact = () => {
                 <Row className="align-items-center">
                     <Col md={6}>
                         <img src={contactImg} alt="Contact Us" />
+                        <div className="contact-info mt-4">
+                            <h3>Other Ways to Connect</h3>
+                            <div className="contact-method">
+                                <h5>Email</h5>
+                                <p><a href="mailto:malavparekh97@gmail.com">malavparekh97@gmail.com</a></p>
+                            </div>
+                            <div className="contact-method">
+                                <h5>WhatsApp</h5>
+                                <p><a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a></p>
+                            </div>
+                            <div className="contact-method">
+                                <h5>LinkedIn</h5>
+                                <p><a href="https://www.linkedin.com/in/malav-parekh-937139292/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></p>
+                            </div>
+                        </div>
                     </Col>
                     <Col md={6}>
                         <h2>Get In Touch</h2>

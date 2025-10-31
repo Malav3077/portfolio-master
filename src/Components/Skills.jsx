@@ -35,35 +35,43 @@ export const Skills = () => {
                             <h2>Skills</h2>
                             <div className="skills_list">
                                 <ul className="list">
-                                    <li><span>Frontend Development: </span>Proficient in HTML, CSS, and modern CSS frameworks like Bootstrap and Tailwind CSS.</li>
-                                    <li><span>JavaScript: </span>Expertise in JavaScript, including ES6+ features.</li>
-                                    <li><span>ReactJS & NodeJS: </span>Skilled in building dynamic user interfaces, single-page applications, and server-side rendered applications with ReactJS and NodeJS.</li>
-                                    <li><span>Backend Frameworks: </span>Experience with Laravel for PHP applications and Express.js for Node.js applications.</li>
-                                    <li><span>Databases: </span>MySQL and MongoDB for database management.</li>
-                                    <li><span>Version Control: </span>Proficient in Git for version control and GitHub for collaboration and code repository management.</li>
+                                    <li><span>Odoo Development:</span> Strong experience with Odoo customization, module development, and ORM logic.</li>
+                                    <li><span>Python Programming:</span> Proficient in Python for server-side logic and business logic in Odoo.</li>
+                                    <li><span>QWeb & XML:</span> Skilled in designing custom reports, templates, and views using QWeb and XPath.</li>
+                                    <li><span>PostgreSQL:</span> Solid understanding of PostgreSQL database structure used by Odoo.</li>
+                                    <li><span>JavaScript (Odoo Frontend):</span> Knowledge of legacy JS, OWL (Odoo Web Library), and modern Odoo 17+ UI extensions.</li>
+                                    <li><span>Git & Version Control:</span> Efficient with Git workflows, collaboration, and versioning of Odoo modules.</li>
+
+                                    {/* mern stack */}
+                                    <li><span>MERN Stack:</span> Proficient in building full-stack applications using MongoDB, Express.js, React.js, and Node.js.</li>
+
                                 </ul>
                             </div>
                             <br />
                             <Carousel responsive={responsive} infinite={true} className="skill-slider">
                                 <div className="item">
-                                    <img src={meter1} alt="Image" />
-                                    <h5>Frontend Development</h5>
+                                    <img src={meter2} alt="Odoo" />
+                                    <h5>Python</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter2} alt="Image" />
-                                    <h5>Backend Development</h5>
+                                    <img src={meter1} alt="Python" />
+                                    <h5>Odoo Framework</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter1} alt="Image" />
-                                    <h5>Version Control</h5>
+                                    <img src={meter3} alt="PostgreSQL" />
+                                    <h5>PostgreSQL</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter3} alt="Image" />
-                                    <h5>Design Skills</h5>
+                                    <img src={meter2} alt="QWeb" />
+                                    <h5>QWeb & XML</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter2} alt="Image" />
-                                    <h5>Laravel & Express.js</h5>
+                                    <img src={meter1} alt="JS" />
+                                    <h5>JavaScript (OWL)</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter3} alt="Git" />
+                                    <h5>Git & GitHub</h5>
                                 </div>
                             </Carousel>
                         </div>

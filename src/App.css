@@ -80,11 +80,25 @@ input:focus, textarea:focus, select:focus {
 }
 
 p.success {
-	color: green;
+	color: #4BB543;
+	font-weight: 600;
+	font-size: 18px;
+	margin-top: 15px;
+	background: rgba(75, 181, 67, 0.1);
+	padding: 10px 15px;
+	border-radius: 8px;
+	border: 1px solid #4BB543;
 }
 
 p.danger {
-	color: red;
+	color: #FF6B6B;
+	font-weight: 600;
+	font-size: 18px;
+	margin-top: 15px;
+	background: rgba(255, 107, 107, 0.1);
+	padding: 10px 15px;
+	border-radius: 8px;
+	border: 1px solid #FF6B6B;
 }
 
 /*navbar styling*/
@@ -391,7 +405,7 @@ li span{
   overflow: hidden;
 }
 .ph .nav.nav-pills .nav-item {
-  width: 33.33333%;
+  width: 25%;
 }
 .ph .nav.nav-pills .nav-link {
   background-color: transparent;
@@ -433,8 +447,25 @@ li span{
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 .nav-link#projects-tabs-tab-third {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.nav-link#projects-tabs-tab-fourth {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
+}
+.ph .tab-content {
+  margin-top: 40px;
+}
+.ph .tab-pane h4 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+.ph .tab-pane h4:first-child {
+  margin-top: 0;
 }
 .proj-imgbx {
   position: relative;
@@ -575,10 +606,47 @@ div.col{
 .contact form button:hover::before {
   width: 100%;
 }
+.contact-info {
+  margin-top: 20px;
+}
+.contact-info h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.contact-method {
+  margin-bottom: 20px;
+}
+.contact-method h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.contact-method p {
+  margin: 0;
+}
+.contact-method a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.contact-method a:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #AA367C;
+  transform: translateY(-2px);
+}
 
 /*footer styling*/
 .footer {
-  padding: 0 0 20px 0;
+  padding: 50px 0 20px 0;
   background-image: url('./assets/img/footer-bg.png');
   background-position: center center;
   background-size: cover;
@@ -630,9 +698,25 @@ div.col{
   nav a .logoImage{
     width:100%;
   }
+  .ph .nav.nav-pills {
+    width: 95%;
+  }
+  .ph .nav.nav-pills .nav-item {
+    width: 25%;
+  }
   .ph .nav.nav-pills .nav-link {
-  font-size: 10px;
-}
+    font-size: 10px;
+    padding: 12px 5px;
+  }
+  .ph h2 {
+    font-size: 32px;
+  }
+  .ph .tab-pane h4 {
+    font-size: 20px;
+  }
+  .ph p {
+    font-size: 16px;
+  }
 
 .social-icon a{
   width: 30px;

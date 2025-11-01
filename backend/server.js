@@ -32,7 +32,7 @@ contactEmail.verify((error) => {
     }
 });
 
-app.post("/Contact", (req, res) => {
+app.post("/contact", (req, res) => {
     const { firstName, lastName, email, message, phone } = req.body;
     const name = `${firstName} ${lastName}`;
     const mail = {

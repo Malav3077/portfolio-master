@@ -1,135 +1,124 @@
-import { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contactImg.svg";
+import { useState, useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
-    const formInitialDetails = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: ''
-    };
+  const sectionRef = useRef(null);
+  const formRef = useRef(null);
 
-    const [formDetails, setFormDetails] = useState(formInitialDetails);
-    const [buttonText, setButtonText] = useState('Send');
-    const [status, setStatus] = useState({});
-
-    const onFormUpdate = (category, value) => {
-        setFormDetails({
-            ...formDetails,
-            [category]: value
-        });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setButtonText("Sending...");
-
-        try {
-            let response = await fetch("http://localhost:5000/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formDetails),
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll(".reveal").forEach((el) => {
+              el.classList.add("active");
             });
-
-            if (!response.ok) {
-                const error = await response.json();
-                console.error("Error:", error);
-                setStatus({ success: false, message: error.message || 'Something went wrong, Please try again later' });
-            } else {
-                let result = await response.json();
-                setButtonText("Send");
-                setFormDetails(formInitialDetails);
-                setStatus({ success: true, message: 'Message sent successfully' });
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            setButtonText("Send");
-            setStatus({ success: false, message: 'Something went wrong, Please try again later' });
-        }
-    };
-
-    return (
-        <section className="contact" id="contact">
-            <Container>
-                <Row className="align-items-center">
-                    <Col md={6}>
-                        <img src={contactImg} alt="Contact Us" />
-                        <div className="contact-info mt-4">
-                            <h3>Other Ways to Connect</h3>
-                            <div className="contact-method">
-                                <h5>Email</h5>
-                                <p><a href="mailto:malavparekh97@gmail.com">malavparekh97@gmail.com</a></p>
-                            </div>
-                            <div className="contact-method">
-                                <h5>WhatsApp</h5>
-                                <p><a href="https://wa.me/917573051360" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a></p>
-                            </div>
-                            <div className="contact-method">
-                                <h5>LinkedIn</h5>
-                                <p><a href="https://www.linkedin.com/in/malav-parekh-937139292/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></p>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col md={6}>
-                        <h2>Get In Touch</h2>
-                        <form onSubmit={handleSubmit} >
-                            <Row>
-                                <Col sm={6} className="px-1">
-                                    <input
-                                        type="text"
-                                        value={formDetails.firstName}
-                                        placeholder="First Name"
-                                        onChange={(e) => onFormUpdate('firstName', e.target.value)}
-                                    />
-                                </Col>
-                                <Col sm={6} className="px-1">
-                                    <input
-                                        type="text"
-                                        value={formDetails.lastName}
-                                        placeholder="Last Name"
-                                        onChange={(e) => onFormUpdate('lastName', e.target.value)}
-                                    />
-                                </Col>
-                                <Col sm={6} className="px-1">
-                                    <input
-                                        type="email"
-                                        value={formDetails.email}
-                                        placeholder="Email"
-                                        onChange={(e) => onFormUpdate('email', e.target.value)}
-                                    />
-                                </Col>
-                                <Col sm={6} className="px-1">
-                                    <input
-                                        type="tel"
-                                        value={formDetails.phone}
-                                        placeholder="Phone"
-                                        onChange={(e) => onFormUpdate('phone', e.target.value)}
-                                    />
-                                </Col>
-                                <Col>
-                                    <textarea
-                                        id="fixedTextarea"
-                                        rows={6}
-                                        value={formDetails.message}
-                                        placeholder="Message"
-                                        onChange={(e) => onFormUpdate('message', e.target.value)}
-                                    ></textarea>
-                                    <button type="submit"><span>{buttonText}</span></button>
-                                    {status.message && (
-                                        <Col>
-                                            <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                                        </Col>
-                                    )}
-                                </Col>
-                            </Row>
-                        </form>
-                    </Col>
-                </Row>
-            </Container>
-        </section>
+          }
+        });
+      },
+      { threshold: 0.15 }
     );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const [formDetails, setFormDetails] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [buttonText, setButtonText] = useState("Send");
+  const [status, setStatus] = useState({});
+
+  const onFormUpdate = (key, value) => {
+    setFormDetails({ ...formDetails, [key]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setButtonText("Sending...");
+    try {
+      await emailjs.send(
+        "service_mk5ackf",
+        "template_zkf8nqu",
+        {
+          name: formDetails.name,
+          time: new Date().toLocaleString(),
+          message: `${formDetails.message}\n\nReply to: ${formDetails.email}`,
+        },
+        "ebSomteP99WHVHFrm"
+      );
+      setButtonText("Send");
+      setFormDetails({ name: "", email: "", message: "" });
+      setStatus({ success: true, message: "Message sent successfully!" });
+    } catch {
+      setButtonText("Send");
+      setStatus({ success: false, message: "Something went wrong, try again" });
+    }
+  };
+
+  return (
+    <section className="contact-section" id="contact" ref={sectionRef}>
+      {/* Diagonal geometric shapes */}
+      <div className="contact-geo-shape contact-geo-1"></div>
+      <div className="contact-geo-shape contact-geo-2"></div>
+
+      <div className="contact-split">
+        {/* Left side: big heading */}
+        <div className="contact-left reveal">
+          <div className="contact-left-content">
+            <h2 className="contact-title">Conversation<br />comes first</h2>
+            <p className="contact-subtitle">That's often where good things begin.</p>
+          </div>
+        </div>
+
+        {/* Right side: form */}
+        <div className="contact-right reveal delay-2">
+          <div className="contact-form-wrapper">
+            <h3 className="contact-form-title">Open to opportunities</h3>
+
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="contact-field">
+                <label className="contact-label">Name</label>
+                <input
+                  type="text"
+                  className="contact-input"
+                  placeholder="How should I call you?"
+                  value={formDetails.name}
+                  onChange={(e) => onFormUpdate("name", e.target.value)}
+                />
+              </div>
+              <div className="contact-field">
+                <label className="contact-label">Email</label>
+                <input
+                  type="email"
+                  className="contact-input"
+                  placeholder="Where can I reach you?"
+                  value={formDetails.email}
+                  onChange={(e) => onFormUpdate("email", e.target.value)}
+                />
+              </div>
+              <div className="contact-field">
+                <label className="contact-label">Message</label>
+                <textarea
+                  className="contact-input"
+                  placeholder="Anything you'd like to discuss?"
+                  rows={4}
+                  value={formDetails.message}
+                  onChange={(e) => onFormUpdate("message", e.target.value)}
+                />
+              </div>
+              <button type="submit" className="contact-submit">{buttonText}</button>
+              {status.message && (
+                <p className={status.success === false ? "danger" : "success"}>
+                  {status.message}
+                </p>
+              )}
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };

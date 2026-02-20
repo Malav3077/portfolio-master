@@ -1,84 +1,90 @@
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
-import colorSharp from "../assets/img/color-sharp.png";
-import { Container, Row, Col } from "react-bootstrap";
+import { useEffect, useRef } from "react";
+
+const skills = [
+  { name: "Python", color: "#3776AB", abbr: "Py" },
+  { name: "Odoo", color: "#714B67", abbr: "Od" },
+  { name: "JavaScript", color: "#F7DF1E", abbr: "JS", dark: true },
+  { name: "PostgreSQL", color: "#336791", abbr: "Pg" },
+  { name: "React", color: "#61DAFB", abbr: "Re", dark: true },
+  { name: "Node.js", color: "#339933", abbr: "Nd" },
+  { name: "HTML", color: "#E34F26", abbr: "H5" },
+  { name: "CSS", color: "#1572B6", abbr: "C3" },
+  { name: "MongoDB", color: "#47A248", abbr: "Mg" },
+  { name: "Express", color: "#666666", abbr: "Ex" },
+  { name: "Git", color: "#F05032", abbr: "Gt" },
+  { name: "GitHub", color: "#aaaaaa", abbr: "GH", dark: true },
+  { name: "XML", color: "#0060AC", abbr: "XL" },
+  { name: "REST APIs", color: "#FF6C37", abbr: "AP" },
+  { name: "OWL", color: "#714B67", abbr: "OW" },
+  { name: "Bootstrap", color: "#7952B3", abbr: "Bs" },
+  { name: "Linux", color: "#FCC624", abbr: "Lx", dark: true },
+  { name: "Postman", color: "#FF6C37", abbr: "Pm" },
+];
 
 export const Skills = () => {
-    const responsive = {
-        superLargeDesktop: {
-            breakpoint: { max: 4000, min: 3000 },
-            items: 5
-        },
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1
-        }
-    };
+  const ref = useRef(null);
 
-    return (
-        <section className="skill" id="skills">
-            <Container>
-                <Row>
-                    <Col>
-                        <div className="skill-bx">
-                            <h2>Skills</h2>
-                            <div className="skills_list">
-                                <ul className="list">
-                                    <li><span>Odoo Development:</span> Strong experience with Odoo customization, module development, and ORM logic.</li>
-                                    <li><span>Python Programming:</span> Proficient in Python for server-side logic and business logic in Odoo.</li>
-                                    <li><span>QWeb & XML:</span> Skilled in designing custom reports, templates, and views using QWeb and XPath.</li>
-                                    <li><span>PostgreSQL:</span> Solid understanding of PostgreSQL database structure used by Odoo.</li>
-                                    <li><span>JavaScript (Odoo Frontend):</span> Knowledge of legacy JS, OWL (Odoo Web Library), and modern Odoo 17+ UI extensions.</li>
-                                    <li><span>Git & Version Control:</span> Efficient with Git workflows, collaboration, and versioning of Odoo modules.</li>
-
-                                    {/* mern stack */}
-                                    <li><span>MERN Stack:</span> Proficient in building full-stack applications using MongoDB, Express.js, React.js, and Node.js.</li>
-
-                                </ul>
-                            </div>
-                            <br />
-                            <Carousel responsive={responsive} infinite={true} className="skill-slider">
-                                <div className="item">
-                                    <img src={meter2} alt="Odoo" />
-                                    <h5>Python</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter1} alt="Python" />
-                                    <h5>Odoo Framework</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter3} alt="PostgreSQL" />
-                                    <h5>PostgreSQL</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter2} alt="QWeb" />
-                                    <h5>QWeb & XML</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter1} alt="JS" />
-                                    <h5>JavaScript (OWL)</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter3} alt="Git" />
-                                    <h5>Git & GitHub</h5>
-                                </div>
-                            </Carousel>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
-            <img className="background-image-left" src={colorSharp} alt="bg image" />
-        </section>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll(".reveal").forEach((el) => el.classList.add("active"));
+          }
+        });
+      },
+      { threshold: 0.1 }
     );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section className="skills-section" id="skills" ref={ref}>
+      {/* Large watermark background text */}
+      <div className="skills-watermark">SKILLS</div>
+
+      <h2 className="skills-title reveal">Skills</h2>
+
+      {/* Diamond geometric icon */}
+      <div className="skills-diamond reveal delay-1">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <path d="M16 2L26 16L16 30L6 16Z" />
+          <path d="M16 8L22 16L16 24L10 16Z" />
+        </svg>
+      </div>
+
+      {/* Flip text: I CONSTANTLY TRY TO [word] */}
+      <div className="skills-flip-text reveal delay-2">
+        <span className="skills-flip-static">I CONSTANTLY TRY TO</span>
+        <span className="skills-flip-word">
+          <span className="skills-flip-track">
+            <span>IMPROVE</span>
+            <span>LEARN</span>
+            <span>ADAPT</span>
+            <span>GROW</span>
+            <span>IMPROVE</span>
+          </span>
+        </span>
+      </div>
+
+      {/* Skill tags with colored icons */}
+      <div className="skills-tags-wrap reveal delay-3">
+        {skills.map((skill, i) => (
+          <div key={i} className="skill-tag">
+            <span
+              className="skill-icon"
+              style={{
+                background: skill.color,
+                color: skill.dark ? '#111' : '#fff'
+              }}
+            >
+              {skill.abbr}
+            </span>
+            <span className="skill-tag-name">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };

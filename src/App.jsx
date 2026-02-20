@@ -1,26 +1,28 @@
 import "./App.css";
-import { NavBar } from './Components/NavBar';
-import {Banner} from "./Components/Banner";
-import {Skills} from "./Components/Skills";
-import {ProfessionalH} from "./Components/ProffesionalH";
-import {Contact} from "./Components/Contact";
-import {Footer} from "./Components/Footer";
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { CustomCursor } from "./Components/CustomCursor";
+import { NavBar } from "./Components/NavBar";
+import { Banner } from "./Components/Banner";
+import { About } from "./Components/About";
+import { Statement } from "./Components/Statement";
+import { Skills } from "./Components/Skills";
+import { Projects } from "./Components/Projects";
+import { Contact } from "./Components/Contact";
+import { Footer } from "./Components/Footer";
 
 function App() {
-  
   return (
     <div className="App">
-      <NavBar/> 
-      <Banner/>
-      <Skills/>
-      <ProfessionalH/>
-      <Contact/>
-      <Footer/>
+      <CustomCursor />
+      <NavBar />
+      <Banner />
+      <About />
+      <Statement />
+      <Skills />
+      <Projects />
+      <Contact />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
-  
+export default App;

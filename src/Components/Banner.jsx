@@ -37,9 +37,9 @@ export const Banner = () => {
         <div className="hero-divider reveal delay-3"></div>
 
         <div className="hero-right reveal delay-4">
-          <span className="hero-role-title">Odoo Developer &middot; AI Enthusiast</span>
+          <span className="hero-role-title">Odoo Developer &middot; Python Developer</span>
           <span className="hero-tagline">Building smart business solutions with Odoo, AI integration &amp; modern web tech</span>
-          <span className="hero-location">Based in Ahmedabad &middot; Odoo &middot; Python &middot; AI &middot; MERN</span>
+          <span className="hero-location">Based in Ahmedabad &middot; Odoo &middot; Python &middot; FastAPI &middot; AI</span>
         </div>
       </div>
 

@@ -36,16 +36,16 @@ export const About = () => {
             <h2 className="reveal delay-1">ABOUT ME</h2>
             <div className="reveal delay-2">
               <p>
-                <strong>Malav</strong>, an Odoo developer &amp; AI enthusiast who loves building
-                custom modules, integrating AI into business workflows, and crafting modern web applications.
+                <strong>Malav</strong>, an Odoo Developer &amp; Python enthusiast who loves building
+                custom ERP modules, integrating AI into business workflows, and crafting modern web applications.
               </p>
             </div>
 
             <div className="reveal delay-3">
               <p>
-                Currently working at RDFlex Pvt Ltd, Gandhinagar. With a Master's in Computer
-                Application (MCA) from Gujarat Technological University (8.75 CPI), I specialize
-                in Odoo 14-18, Python, AI integration, PostgreSQL and full-stack MERN development.
+                Currently working at RDFlex Pvt. Ltd., Gandhinagar. MCA from Gujarat Technological University
+                (CPI: 8.57). Specializing in Odoo 18, Python, FastAPI, LLM integration, PostgreSQL,
+                Docker, and full-stack development.
               </p>
             </div>
 

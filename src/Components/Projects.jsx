@@ -21,17 +21,25 @@ export const Projects = () => {
   const projects = [
     {
       num: "_01.",
-      title: "Hotel Management",
-      desc: "Custom Odoo 18 module for hotel operations — room booking, guest check-in/out, invoicing, and availability tracking.",
-      tags: ["Odoo 18", "Python", "PostgreSQL"],
-      link: "https://github.com/Malav3077/Hotel-Management--odoo18",
+      title: "Platxa — AI Odoo Module Generator",
+      desc: "AI SaaS platform that converts natural language prompts into validated and deployed Odoo ERP modules automatically using LLM orchestration.",
+      tags: ["Python", "FastAPI", "Odoo", "PostgreSQL", "Docker", "Kubernetes"],
+      link: "https://github.com/platxa/",
+      badge: "Working",
     },
     {
       num: "_02.",
-      title: "Job Portal MERN",
-      desc: "Full-stack job portal with Job Seeker & Employer roles, real-time email automation, authentication, and recruiter dashboard.",
-      tags: ["React", "Node.js", "MongoDB", "Express"],
-      link: "https://github.com/Malav3077/JOB_PORTAL_MERN",
+      title: "Hotel Management System",
+      desc: "Custom Odoo 18 ERP with room booking, check-in/out, automated billing, and Razorpay online payment gateway integration.",
+      tags: ["Odoo 18", "Python", "ORM", "PostgreSQL", "Razorpay"],
+      link: "https://github.com/Malav3077/Hotel-Management--odoo18",
+    },
+    {
+      num: "_03.",
+      title: "Foodie Hub — Food Ordering App",
+      desc: "Full-stack food ordering platform with real-time order tracking, JWT authentication, and multi-role support (user, restaurant, admin).",
+      tags: ["React.js", "FastAPI", "Docker", "JWT Auth"],
+      link: "https://github.com/Malav3077/Foodie-hub-Delivery-App",
     },
   ];
 
@@ -64,7 +72,7 @@ export const Projects = () => {
             <div className="project-index">{p.num}</div>
             <div className="project-content">
               <div className="project-title-row">
-                <div className="project-title">{p.title}</div>
+                <div className="project-title">{p.title} {p.badge && <span style={{fontSize:"11px",background:"#00d2c8",color:"#000",borderRadius:"4px",padding:"2px 7px",marginLeft:"8px",fontWeight:700,verticalAlign:"middle"}}>{p.badge}</span>}</div>
                 <svg className="project-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="7" y1="17" x2="17" y2="7"/>
                   <polyline points="7 7 17 7 17 17"/>
